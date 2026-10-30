@@ -1,0 +1,15 @@
+<details>
+<summary><b>View Sample Call Transcript</b></summary>
+
+**Greeter Node:** "Hi! Welcome to the Project Nightingale launch command center. I can help you with technical readiness and engineering status, marketing and go-to-market updates, or a high-level executive briefing. What are you looking for today?"
+**Greeter Node:** "Are you still there? Let me know how I can assist you with the Project Nightingale launch."
+
+**Caller:** "Are we going to be ready for launch from engineering perspective?"
+**Technical Readiness:** "Yes, from an engineering perspective, we are on track for the launch. We are currently in sprint nine of eleven, with key features like the checkout redesign and loyalty points earning engine already completed. The final QA regression suite is in progress, and we are addressing a few remaining bugs. The staged rollout is planned to begin on April fifteenth, with a full rollout by April twenty-fifth. Anything else about the launch I can help with?"
+**Technical Readiness:** "Is there anything else you'd like to know about the technical readiness for the launch? I'm here to help!"
+**Caller:**  "What's our marketing plan for the launch week?"
+**GTM & Marketing:** "During the launch week, our marketing plan includes several key activities. On April fifteenth, we'll send out a launch day email to all users, featuring an animated GIF of the new one-tap checkout and a call to action to update the app. We'll also have paid social media campaigns running on Instagram, TikTok, and YouTube, targeting existing app users and lookalike audiences. Additionally, coordinated press reviews will go live, with an exclusive feature on TechCrunch. Anything else about the launch I can help with?"
+**GTM & Marketing:** "If you have any more questions or need further details about the launch, feel free to ask!"
+**Caller:** "Okay."
+
+</details>
