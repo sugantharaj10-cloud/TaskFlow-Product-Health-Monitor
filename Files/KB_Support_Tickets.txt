@@ -1,0 +1,121 @@
+# Product Health Monitor — Support Ticket Analysis
+# Product: TaskFlow (Project Management SaaS)
+# Data Period: January 1 – February 28, 2026
+# Source: Zendesk Support Dashboard
+---
+## Overall Ticket Volume
+- Total Tickets (Jan-Feb): 4,218
+- January: 1,876 tickets
+- February: 2,342 tickets (25% increase month-over-month)
+- Average Daily Volume: 71 tickets/day (up from 58/day in Q4 2025)
+### Volume by Priority
+| Priority | Count | % of Total | Avg Resolution Time |
+|----------|-------|-----------|-------------------|
+| Critical (P0) | 89 | 2% | 4.2 hours |
+| High (P1) | 412 | 10% | 18.6 hours |
+| Medium (P2) | 1,687 | 40% | 48.3 hours |
+| Low (P3) | 2,030 | 48% | 96.7 hours |
+### Volume by Category
+| Category | Count | % of Total | Trend vs Q4 2025 |
+|----------|-------|-----------|-----------------|
+| Performance/Speed | 1,012 | 24% | Up 45% |
+| Mobile App Issues | 798 | 19% | Up 38% |
+| Search Problems | 534 | 13% | Up 22% |
+| Account and Billing | 487 | 12% | Flat |
+| Integration Issues | 378 | 9% | Down 5% |
+| Feature Questions | 356 | 8% | Flat |
+| Export/Import | 289 | 7% | Up 15% |
+| Notifications | 234 | 6% | Up 30% |
+| Other | 130 | 3% | Flat |
+---
+## Performance/Speed Tickets (1,012 tickets - Biggest Category)
+### Breakdown
+- Dashboard loading slow: 487 tickets (48% of category)
+- Report generation timeout: 189 tickets (19%)
+- Task list lag with 100+ items: 156 tickets (15%)
+- File upload slow/failing: 98 tickets (10%)
+- General app is slow complaints: 82 tickets (8%)
+### Affected User Segments
+- Enterprise users file 58% of performance tickets despite being only 23% of user base
+- The issue disproportionately affects accounts with 50+ projects
+- Performance tickets spike between 9-11 AM ET (likely correlated with morning standup prep)
+### Escalation Rate
+- 34% of performance tickets escalate to Tier 2 (engineering investigation)
+- 8% escalate to Tier 3 (require backend team fix)
+- Average escalation resolution: 5.2 business days
+### Customer Impact
+- 12 Enterprise accounts (representing $340,000 ARR) have explicitly threatened to churn due to performance issues
+- 3 Enterprise accounts have already downgraded from annual to monthly billing (churn risk signal)
+- Support team estimates 15-20% of performance tickets come from users who will not renew
+---
+## Mobile App Issues (798 tickets - Second Biggest Category)
+### Breakdown
+- Android crash on project switch: 312 tickets (39%)
+- iOS UI rendering issues: 145 tickets (18%)
+- Sync failures (offline to online): 134 tickets (17%)
+- Push notifications not working: 98 tickets (12%)
+- Login session expiring too frequently: 67 tickets (8%)
+- Other mobile bugs: 42 tickets (5%)
+### Platform Split
+- Android: 523 tickets (66%)
+- iOS: 275 tickets (34%)
+### The Android Crash Issue (Deep Dive)
+- First reported: December 15, 2025
+- Reproduction rate: approximately 70% of Android users on TaskFlow v4.2.1
+- Root cause identified by engineering: memory leak in project switching logic introduced in v4.2.0 update
+- Fix status: patch v4.2.2 submitted to Play Store on February 20, currently in review
+- Expected resolution: March 5, 2026
+- Workaround communicated to users: force-close and reopen the app before switching projects
+---
+## Search Problems (534 tickets - Third Biggest Category)
+### Breakdown
+- Search not finding tasks (task exists but search returns no results): 223 tickets (42%)
+- Cannot search inside comments: 156 tickets (29%)
+- No cross-project search: 89 tickets (17%)
+- Search results not sortable/filterable: 66 tickets (12%)
+### Engineering Assessment
+- Current search uses basic text matching on task titles and descriptions only
+- Comments, attachments, and custom fields are NOT indexed
+- Search index rebuilds nightly so tasks created during the day may not appear in search until the next day
+- Engineering has proposed migrating to Elasticsearch, estimated 6-8 weeks of work, currently in backlog (not yet prioritized)
+---
+## Customer Satisfaction (CSAT) for Support
+- Overall CSAT: 78% (down from 84% in Q4 2025)
+- CSAT by Channel: Live Chat 82%, Email 76%, Phone 71%
+- First Response Time (average): 2.4 hours (target: under 2 hours)
+- First Contact Resolution Rate: 62% (target: 70%)
+### Why CSAT Is Declining
+- 41% of dissatisfied respondents cite issue not resolved as the reason
+- 29% cite had to repeat my problem multiple times
+- 18% cite response was too slow
+- 12% cite agent did not understand my issue
+---
+## Churn Risk Signals from Support Data
+### High-Risk Accounts (based on ticket volume + sentiment analysis)
+- 28 accounts flagged as high churn risk
+- Combined ARR of flagged accounts: $892,000
+- Common pattern: 3+ tickets in 30 days with negative sentiment, typically about performance or mobile crashes
+### Top 5 At-Risk Enterprise Accounts
+1. Acme Corp ($120K ARR) - 14 tickets in February, all about dashboard performance. Account champion has stopped responding to CSM emails.
+2. GlobalTech ($95K ARR) - Filed formal complaint about Android crashes. Evaluating competitor (Monday.com).
+3. Pinnacle Systems ($88K ARR) - Downgraded from annual to monthly billing. Cited loss of confidence in product quality.
+4. DataDrive Inc ($78K ARR) - Support tickets escalating in tone. Latest ticket: If this is not fixed by March 15, we are leaving.
+5. Brightpath ($67K ARR) - Reduced seat count from 150 to 80. PM told CSM they are parallel testing alternatives.
+---
+## Support Team Capacity
+- Current Team: 8 support agents (6 Tier 1, 2 Tier 2)
+- Tickets Per Agent Per Day: 8.9 (target: 8.0 - currently over capacity)
+- Agent Burnout Risk: 2 agents have flagged workload concerns to manager
+- Hiring Status: 2 additional Tier 1 agents approved, start date March 15
+- Temporary Measure: Auto-responder deployed for top 5 FAQ categories (covers approximately 20% of incoming tickets)
+---
+## Month-Over-Month Trends
+| Metric | December 2025 | January 2026 | February 2026 | Trend |
+|--------|--------------|-------------|--------------|-------|
+| Total Tickets | 1,645 | 1,876 | 2,342 | Increasing sharply |
+| Avg Resolution Time | 38 hours | 42 hours | 51 hours | Getting worse |
+| First Contact Resolution | 68% | 65% | 62% | Declining |
+| CSAT | 84% | 81% | 78% | Declining |
+| Escalation Rate | 22% | 26% | 31% | Increasing |
+| Performance Tickets | 498 | 478 | 534 | Increasing |
+| Mobile Tickets | 312 | 356 | 442 | Increasing sharply |
