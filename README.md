@@ -1,6 +1,18 @@
 # TaskFlow Product Health Monitor
 
-A conversational, multi-agent voice AI system built with ElevenLabs Workflow Builder. Designed as an interactive analytics and health monitoring tool for Product Managers (PMs) and Technical Program Managers (TPMs), this system analyzes real-time SaaS health data across three dedicated analytical tracks: User Feedback & NPS, Support Tickets & Churn Risks, and Product Engagement & Conversion Metrics.   Live DemoInteractive Voice Agent: Talk to TaskFlow Product Health Monitor   Overview & Architecture PatternMonolithic voice agents frequently fail when handling multi-faceted product analytics: large combined prompts lead to cross-domain hallucinations (e.g., citing support ticket churn figures when discussing customer NPS scores) and unfocused responses.   The TaskFlow Product Health Monitor enforces strict knowledge base scoping and dynamic conversation orchestration:   Strict Single-KB Scoping: Unlike shared-context architectures, each specialist subagent receives only one specific data file. This creates strict information boundaries and eliminates cross-domain hallucination.   Data-First Persona: Responses adopt an analytical, data-first tone—leading directly with hard numbers, sample sizes, benchmarks, and dates rather than generic conversation filler.   Bidirectional Cross-Routing: Six backward/cross-routing edges allow users to seamlessly pivot between analytical tracks mid-call without getting stuck or restarting the conversation.   Architecture DiagramThe system consists of 5 nodes connected by 12 LLM condition edges (3 forward, 3 session termination, and 6 bidirectional cross-routing).                                     [ Start Node ]
+A conversational, multi-agent voice AI system built with ElevenLabs Workflow Builder. Designed as an interactive analytics and health monitoring tool for Product Managers (PMs) and Technical Program Managers (TPMs), this system analyzes real-time SaaS health data across three dedicated analytical tracks: User Feedback & NPS, Support Tickets & Churn Risks, and Product Engagement & Conversion Metrics.   
+
+# Live Demo
+Interactive Voice Agent: Talk to TaskFlow Product Health Monitor  
+
+# Overview & Architecture Pattern
+Monolithic voice agents frequently fail when handling multi-faceted product analytics: large combined prompts lead to cross-domain hallucinations (e.g., citing support ticket churn figures when discussing customer NPS scores) and unfocused responses.   The TaskFlow Product Health Monitor enforces strict knowledge base scoping and dynamic conversation orchestration:   Strict Single-KB Scoping: Unlike shared-context architectures, each specialist subagent receives only one specific data file. This creates strict information boundaries and eliminates cross-domain hallucination.   Data-First Persona: Responses adopt an analytical, data-first tone—leading directly with hard numbers, sample sizes, benchmarks, and dates rather than generic conversation filler.   Bidirectional Cross-Routing: Six backward/cross-routing edges allow users to seamlessly pivot between analytical tracks mid-call without getting stuck or restarting the conversation.   
+
+# Architecture Diagram
+The system consists of 5 nodes connected by 12 LLM condition edges (3 forward, 3 session termination, and 6 bidirectional cross-routing). 
+
+
+[ Start Node ]
                                          │
                                          ▼
                                 [ 1. Greeter Node ]
@@ -22,6 +34,8 @@ A conversational, multi-agent voice AI system built with ElevenLabs Workflow Bui
                                          │ LLM Condition (Call Complete)
                                          ▼
                                 [ 5. End Call Node ]
+
+                                
 Analytical Domains & Scoped Knowledge BasesAll data models cover TaskFlow SaaS operations for January–February 2026.   Subagent NodeKnowledge Base FileDomain Scope & Sample InsightsGreeter NodeNone (Routing Only)   Directs callers to the right domain; never answers queries directly.   User Feedback AnalystKB_User_Feedback.txt   NPS trends (score: 38, down from 45), app store reviews (iOS 3.8★, Play Store 3.6★), 12 user interview findings, and top feature requests (Dark mode leads with 289 requests).   Support Ticket AnalystKB_Support_Tickets.txt   Total tickets (4,218; +25% MoM), category breakdowns (Performance 24%, Mobile 19%), CSAT decline (78%), and high-risk enterprise accounts (28 accounts, $892K ARR at risk).   Product Metrics AnalystKB_Product_Metrics.txt   Revenue ($1.24M MRR, 94% NRR), engagement (28,400 DAU), conversion funnels (8.4% free-to-paid), cohort retention, and system latency (Dashboard p50 at 3.2s — Critical).   EndNone   Terminates the call when user concludes the session.   System Prompts & GuardrailsPlaintext## Global Context
 You are the TaskFlow Product Health Monitor, a voice assistant
 that helps PMs and TPMs query product health data for TaskFlow,
