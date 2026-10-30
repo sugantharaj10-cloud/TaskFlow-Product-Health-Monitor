@@ -1,0 +1,128 @@
+# Project Nightingale — Technical Readiness & Engineering Status
+## Last Updated: March 5, 2026
+
+---
+
+## Sprint Status (Sprint 9 of 11)
+
+### Completed
+- Checkout redesign (mobile + desktop) — DONE
+- Guest checkout flow — DONE
+- Apple Pay integration — DONE
+- Google Pay integration — DONE
+- Loyalty points earning engine — DONE
+- Loyalty tier calculation service — DONE
+- Perks dashboard UI (mobile) — DONE
+- Address auto-complete (Google Places API) — DONE
+- One-tap checkout for returning users — DONE
+- Email notification system for Perks milestones — DONE
+- Load testing at 10x traffic — DONE (passed)
+- Database migration for loyalty tables — DONE
+- Payment failure fallback to PayPal — DONE
+- Rollback mechanism via feature flags — DONE
+
+### In Progress
+- Points redemption at checkout (85% complete, on track for March 12)
+- Perks dashboard UI for tablets (70% complete, known layout issue on landscape)
+- Final QA regression suite (60% complete, 847 of 1,400 test cases executed, 12 bugs found, 8 fixed, 4 in progress)
+- Performance optimization: checkout page load time currently 1.3 seconds (target: under 1.5 seconds — already within target)
+- Analytics event tracking for conversion funnel (80% complete)
+
+### Not Started (Sprint 10-11)
+- A/B test configuration for staged rollout
+- App store submission and review process
+- Production environment final validation
+- Security penetration testing (scheduled March 18)
+- Accessibility compliance final audit
+
+---
+
+## Architecture Overview
+
+### System Components
+- **Frontend:** React Native mobile app (iOS + Android), Next.js web
+- **Checkout Service:** Node.js microservice, handles cart operations and payment orchestration
+- **Payments Gateway:** Stripe Payment Element (primary), PayPal (fallback)
+- **Loyalty Service:** Python microservice, manages points, tiers, and redemption
+- **Notification Service:** AWS SES for email, Firebase for push notifications
+- **Database:** PostgreSQL (primary), Redis (caching, session management)
+- **CDN:** CloudFront for static assets
+- **Monitoring:** Datadog (metrics + logs), PagerDuty (alerting), Sentry (error tracking)
+
+### API Performance (Current Benchmarks)
+- Checkout API: p50 = 120ms, p99 = 340ms (target: p99 < 500ms) ✅
+- Loyalty Points API: p50 = 45ms, p99 = 180ms ✅
+- Payment Processing: p50 = 800ms, p99 = 2.1s (Stripe-dependent, within their SLA)
+- Address Auto-complete: p50 = 90ms, p99 = 250ms ✅
+
+---
+
+## QA Status
+
+### Test Coverage
+- Unit tests: 98% coverage on checkout service, 95% on loyalty service
+- Integration tests: 142 scenarios, 138 passing, 4 flaky (being stabilized)
+- E2E tests: 87 critical user journeys, all passing
+- Load tests: Sustained 10x traffic for 2 hours, zero errors, p99 stayed under 400ms
+- Accessibility: WCAG 2.1 AA compliance — 3 minor issues found (color contrast on two buttons, missing aria-label on one icon). Fixes in progress.
+
+### Bug Summary
+- Critical: 0 open
+- High: 2 open (both related to tablet landscape layout — cosmetic only)
+- Medium: 4 open (points display rounding, edge case in referral code validation, two minor UI alignment issues)
+- Low: 8 open (deferred to v3.1)
+
+---
+
+## Deployment Plan
+
+### Staged Rollout Schedule
+- April 15 (Day 1): 5% of users — canary group, heavy monitoring
+- April 18 (Day 4): 25% of users — if no critical issues from canary
+- April 22 (Day 8): 50% of users — mid-rollout check
+- April 25 (Day 11): 100% of users — full rollout
+
+### Rollback Criteria (Automatic revert if ANY of these trigger)
+- Payment failure rate exceeds 3% for 15 consecutive minutes
+- Checkout API p99 exceeds 1 second for 10 consecutive minutes
+- More than 50 Sentry errors of the same type within 5 minutes
+- App crash rate exceeds 0.5%
+
+### Rollback Process
+- Feature flags disable all v3.0 features within 2 minutes
+- Users seamlessly revert to v2.9 checkout experience
+- Loyalty program features hidden (no data loss — points preserved in database)
+- Total rollback time: under 15 minutes
+- Rollback has been tested 3 times in staging environment
+
+---
+
+## Team Allocation
+
+| Engineer | Current Task | Available for Launch Support? |
+|---------|-------------|------------------------------|
+| Kai Matsumoto (Lead) | Code reviews, architecture oversight | Yes — war room lead |
+| Mei Chen | Points redemption at checkout | Yes — payments on-call |
+| David Okafor | Tablet Perks dashboard | On paternity leave from March 17 |
+| Priya Sharma | QA regression execution | Yes — QA war room |
+| Leo Garcia | Analytics event tracking | Yes — monitoring on-call |
+| Sasha Volkov | Performance optimization | Yes — infrastructure on-call |
+
+### On-Call Rotation (Launch Week: April 15-22)
+- Primary: Kai Matsumoto (Mon-Wed), Mei Chen (Thu-Sun)
+- Secondary: Sasha Volkov (full week)
+- Escalation: VP Engineering (Diana Walsh signs off on any rollback decision)
+
+---
+
+## Dependencies
+
+| Dependency | Owner | Status | Risk |
+|-----------|-------|--------|------|
+| Stripe Payment Element SDK v4.2 | Stripe (external) | Integrated, tested | Low |
+| Google Places API | Google (external) | Integrated, tested. Pricing change May 1 — no launch impact | Low |
+| App Store submission | Apple | Not yet submitted (planned April 8) | Medium — 7 day buffer |
+| Play Store submission | Google | Not yet submitted (planned April 8) | Low — usually faster review |
+| Marketing creative assets | James Whitfield (Marketing) | 80% complete, final assets due April 5 | Low |
+| Sales playbook | Nadia Petrova (Sales) | Draft complete, final review April 1 | Low |
+| Support training materials | Marcus Reeves (Support) | In progress, due April 5 | Low |
