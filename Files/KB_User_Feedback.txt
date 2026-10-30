@@ -1,0 +1,119 @@
+# Product Health Monitor — User Feedback Data
+# Product: TaskFlow (Project Management SaaS)
+# Data Period: January 1 – February 28, 2026
+# Source: NPS Surveys, App Store Reviews, User Interviews, In-App Feedback
+---
+## NPS Survey Results (February 2026)
+- Total Responses: 1,842
+- NPS Score: 38 (down from 45 in January)
+- Promoters (9-10): 47% (was 52% in January)
+- Passives (7-8): 28% (was 25% in January)
+- Detractors (0-6): 25% (was 23% in January)
+### NPS by User Segment
+| Segment | NPS Score | Change from Jan | Sample Size |
+|---------|----------|----------------|-------------|
+| Free tier users | 22 | -5 | 680 |
+| Pro plan users | 48 | -3 | 740 |
+| Enterprise users | 56 | -10 | 422 |
+### Top Reasons for Detractor Scores (from open-text responses)
+1. "Dashboard loading is painfully slow" — mentioned by 34% of detractors
+2. "Search doesn't find what I need" — mentioned by 28% of detractors
+3. "Mobile app crashes when switching projects" — mentioned by 22% of detractors
+4. "Can't export reports to PDF properly" — mentioned by 18% of detractors
+5. "Notification overload — too many emails" — mentioned by 15% of detractors
+### Top Reasons for Promoter Scores
+1. "Love the new Kanban view" — mentioned by 41% of promoters
+2. "Team collaboration features are excellent" — mentioned by 35% of promoters
+3. "Integration with Slack works perfectly" — mentioned by 29% of promoters
+4. "Customer support was super helpful" — mentioned by 24% of promoters
+---
+## App Store Reviews Summary (January–February 2026)
+### iOS App Store
+- Average Rating: 3.8 stars (down from 4.1 in Q4 2025)
+- Total Reviews (2 months): 489
+- 5-star: 165 (34%)
+- 4-star: 112 (23%)
+- 3-star: 78 (16%)
+- 2-star: 72 (15%)
+- 1-star: 62 (13%)
+### Google Play Store
+- Average Rating: 3.6 stars (down from 3.9 in Q4 2025)
+- Total Reviews (2 months): 623
+- 5-star: 187 (30%)
+- 4-star: 131 (21%)
+- 3-star: 99 (16%)
+- 2-star: 112 (18%)
+- 1-star: 94 (15%)
+### Most Frequent Themes in Negative Reviews (3 stars and below)
+1. Performance/Speed: 42% of negative reviews mention slow loading or lag
+2. Mobile Crashes: 31% mention app crashing, especially on Android
+3. Search Quality: 24% mention search not returning expected results
+4. Sync Issues: 19% mention data not syncing between mobile and desktop
+5. UI Complexity: 14% mention the interface being confusing for new users
+### Most Frequent Themes in Positive Reviews (4-5 stars)
+1. Collaboration: 38% praise team collaboration features
+2. Kanban Board: 33% specifically mention the Kanban view
+3. Integrations: 27% praise third-party integrations (Slack, GitHub, Google Drive)
+4. Design: 22% compliment the overall UI design
+---
+## User Interview Insights (12 interviews conducted in February 2026)
+### Interview Participants
+- 4 Free tier users (small teams, 2-5 people)
+- 4 Pro plan users (mid-size teams, 10-30 people)
+- 4 Enterprise users (large organizations, 100+ people)
+### Key Finding 1: Dashboard Performance Is the #1 Pain Point
+- 9 of 12 users mentioned dashboard loading time as a frustration
+- Enterprise users report 8-12 second load times for dashboards with 50+ projects
+- Pro users report 4-6 second load times
+- Quote from interview P7 (Enterprise PM): "I've started using spreadsheets for my morning standup because the dashboard takes too long to load. That defeats the purpose of the tool."
+- Quote from interview P3 (Pro user): "It wasn't this slow six months ago. Something changed and it's getting worse."
+### Key Finding 2: Search Is Fundamentally Broken for Power Users
+- 7 of 12 users expressed frustration with search
+- The search function does not search inside comments, only task titles and descriptions
+- Users cannot search across multiple projects simultaneously
+- No filtering by date range, assignee, or status in search results
+- Quote from interview P11 (Enterprise TPM): "I have 200 tasks across 8 projects. Finding anything is like searching for a needle in a haystack."
+- Quote from interview P5 (Pro user): "I've resorted to using browser Ctrl+F instead of the built-in search. That tells you everything."
+### Key Finding 3: Mobile Experience Is a Dealbreaker for Field Teams
+- 5 of 12 users mentioned mobile issues
+- Android app crashes approximately once per session when switching between projects
+- iOS app is more stable but the UI is not optimized for smaller screens
+- Offline mode does not sync reliably — changes made offline sometimes get lost
+- Quote from interview P9 (Enterprise user): "Our field team has basically stopped using the mobile app. They just wait until they're at a desk."
+### Key Finding 4: Notification Fatigue Is Driving Disengagement
+- 6 of 12 users mentioned notification overload
+- Default settings send email for every comment, status change, and assignment
+- Users who turn off notifications miss important updates
+- No option for "digest" mode (daily summary instead of real-time alerts)
+- Quote from interview P2 (Free user): "I turned off all notifications and now I miss deadlines. But when they were on, I was getting 50 emails a day."
+### Key Finding 5: Users Love the Collaboration Features
+- 11 of 12 users praised real-time collaboration
+- The commenting system, @mentions, and activity feed are rated highly
+- Teams report that TaskFlow has replaced 60-70% of their project-related Slack messages
+- Quote from interview P8 (Pro user): "The collaboration features are why we stay. Everything else has alternatives, but this is the best team workspace we've used."
+---
+## In-App Feedback Widget Submissions (January–February 2026)
+- Total Submissions: 2,347
+- Feature Requests: 892 (38%)
+- Bug Reports: 681 (29%)
+- Complaints: 498 (21%)
+- Praise: 276 (12%)
+### Top 10 Feature Requests
+1. Dark mode (289 requests)
+2. Gantt chart view (198 requests)
+3. Time tracking integration (156 requests)
+4. Custom fields for tasks (134 requests)
+5. Recurring tasks (98 requests)
+6. Better mobile offline support (87 requests)
+7. API access for free tier (76 requests)
+8. Calendar view (69 requests)
+9. Guest access for external collaborators (54 requests)
+10. Bulk task editing (47 requests)
+### Top Bug Reports
+1. Dashboard slow loading (201 reports)
+2. Android app crash on project switch (178 reports)
+3. Search not finding tasks in comments (143 reports)
+4. PDF export formatting broken (98 reports)
+5. Sync delay between mobile and desktop (87 reports)
+6. Email notifications not respecting quiet hours (67 reports)
+7. Drag-and-drop not working in Safari (45 reports)
