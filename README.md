@@ -89,7 +89,7 @@ All data models cover TaskFlow SaaS operations for January–February 2026.
 
 ## Session Termination (3 Edges)
 
-All Analysts → End Call:The user has indicated they are done, said goodbye, thanked the agent, or has no more questions.
+* **All Analysts → End Call:** `The user has indicated they are done, said goodbye, thanked the agent, or has no more questions."`  
 
 ## Verification & Testing Suite
 
